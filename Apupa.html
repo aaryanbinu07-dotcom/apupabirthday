@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 73rd Birthday, Apupa!</title>
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-color: #6b1426;    /* Deep Maroon/Wine */
+            --secondary-color: #a32a42;  /* Lighter Rose-Wine */
+            --accent-color: #d4af37;     /* Classic Gold */
+            --bg-color: #fdfaf2;         /* Warm Soft Cream */
+            --text-color: #2b0c13;       /* Dark Wine-Black */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        /* Birthday Card Wrapper & Animation */
+        .card-container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid rgba(198, 139, 89, 0.3);
+            z-index: 10;
+        }
+
+        .card-cover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .card-cover:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
+
+        .card-cover h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-cover .age-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .card-content {
+            display: none;
+            padding: 40px 30px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Portrait Image Styles */
+        .family-portrait {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .letter-text {
+            font-size: 1.15rem;
+            white-space: pre-line;
+            text-align: left; /* FIXED: Changed from justify to prevent ugly emoji stretching */
+        }
+
+        /* Confetti Effect elements */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            position: absolute;
+            top: -10px;
+            z-index: 1;
+            border-radius: 50%;
+            animation: fall linear forwards;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        /* Simple Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            header h1 { font-size: 2.2rem; }
+            .card-cover h2 { font-size: 1.8rem; }
+            .letter-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Birthday, Manu Apupa!</h1>
+        <p>Celebrating a legacy of love and wisdom.</p>
+    </header>
+
+    <div class="card-container">
+        <div class="card-cover" id="cardCover" onclick="openCard()">
+            <h2>To Our Dearest Apupa</h2>
+            <p>Click to open your birthday card</p>
+            <div class="age-badge">73 Years of being Awesome</div>
+        </div>
+
+        <div class="card-content" id="cardContent">
+            <img src="family_portrait.png" alt="Family Portrait Colored Pencil Drawing" class="family-portrait">
+
+            <p class="letter-text">To my Apupa,
+
+            Happy 73rd Birthday! I am extremely delighted to say that we are celebrating the incredibly loving, kind, and strong man that you are. Thank you for always being there for our family with your warmth, your guidance, and the endless love you share with everyone around you. 
+            
+            Now a short note from your favourite grandchild 😜😜, 
+            I have learned so much from you Apupa. You have put so much effort in teaching me a lot of stuff (including 10th grade hindi 😭😭) and I will be forever grateful for it. Love you apupa 💗💗...
+
+            With all our love,
+            Syamala Bhavan</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with ❤️ for Apupa's 73rd Birthday</p>
+    </footer>
+
+    <script>
+        function openCard() {
+            const cover = document.getElementById('cardCover');
+            const content = document.getElementById('cardContent');
+            
+            // Smoothly hide cover and display content
+            cover.style.display = 'none';
+            content.style.display = 'block';
+
+            // Trigger the surprise confetti burst!
+            createConfetti();
+        }
+
+        function createConfetti() {
+            const colors = ['#6b1426', '#a32a42', '#d4af37', '#dfba73'];
+            for (let i = 0; i < 75; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Randomize appearance and drop speed
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 1.5) + 's';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = confetti.style.height = (Math.random() * 6 + 6) + 'px';
+                
+                document.body.appendChild(confetti);
+
+                // Clean up the DOM after animation finishes
+                setTimeout(() => { confetti.remove(); }, 5000);
+            }
+        }
+    </script>
+
+</body>
+</html>
